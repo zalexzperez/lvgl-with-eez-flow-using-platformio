@@ -39,7 +39,6 @@ void setup()
     pinMode(display_BKL_pin, OUTPUT);
     digitalWrite(display_BKL_pin, LOW);
     
-
     // Initialize LVGL library
     lv_init();
 
@@ -90,8 +89,8 @@ void loop()
     time_till_next = lv_timer_handler(); // lv_task_handler() is LVGL v8 only
     ui_tick();
 
-    delay(10);
-    //vTaskDelay(time_till_next / portTICK_PERIOD_MS); // Delay to avoid unnecessary polling
+    delay(time_till_next);
+    
 }
 
 void encoder_read(lv_indev_t *drv, lv_indev_data_t *data)
